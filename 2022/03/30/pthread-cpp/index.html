@@ -78,7 +78,16 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;pthread.h&gt;</span></span><br><span class="line">pthread_create (thread, attr, start_routine, arg)</span><br></pre></td></tr></table></figure>
 
 <p>在这里，<strong>pthread_create</strong>创建一个新的线程，并让它可执行。下面是关于参数的说明：<br><strong>thread</strong>：指向线程标识符指针<br><strong>attr</strong>：一个不透明的属性对象，可以被用来设置线程属性。您可以指定线程属性对象，也可以使用默认值 NULL。<br><strong>start_routine</strong>：线程运行函数起始地址，一旦线程被创建就会执行。<br><strong>arg</strong>：运行函数的参数。它必须通过把引用作为指针强制转换为 void 类型进行传递。如果没有传递参数，则使用 NULL。</p>
+<p>创建线程成功时，函数返回 0，若返回值不为 0 则说明创建线程失败。</p>
+<h1 id="中止线程"><a href="#中止线程" class="headerlink" title="中止线程"></a>中止线程</h1><p>使用下面的程序，我们可以用它来终止一个 POSIX 线程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;pthread.h&gt;</span></span><br><span class="line">pthread_exit (status) </span><br></pre></td></tr></table></figure>
 
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line">// 必须的头文件</span><br><span class="line"><span class="comment">#include &lt;pthread.h&gt;</span></span><br><span class="line"> </span><br><span class="line">using namespace std;</span><br><span class="line"> </span><br><span class="line"><span class="comment">#define NUM_THREADS 5</span></span><br><span class="line"> </span><br><span class="line">// 线程的运行函数</span><br><span class="line">void* say_hello(void* args)</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Hello Runoob&quot;</span> &lt;&lt; <span class="string">endl;</span></span><br><span class="line"><span class="string">    return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">int main()</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">    // 定义线程的 id 变量，多个变量使用数组</span></span><br><span class="line"><span class="string">    pthread_t tids[NUM_THREADS];</span></span><br><span class="line"><span class="string">    for(int i = 0; i &lt; NUM_THREADS; ++i)</span></span><br><span class="line"><span class="string">    &#123;</span></span><br><span class="line"><span class="string">        //参数依次是：创建的线程id，线程参数，调用的函数，传入的函数参数</span></span><br><span class="line"><span class="string">        int ret = pthread_create(&amp;tids[i], NULL, say_hello, NULL);</span></span><br><span class="line"><span class="string">        if (ret != 0)</span></span><br><span class="line"><span class="string">        &#123;</span></span><br><span class="line"><span class="string">           cout &lt;&lt; &quot;pthread_create error: error_code=&quot; &lt;&lt; ret &lt;&lt; endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //等各个线程退出后，进程才结束，否则进程强制结束了，线程可能还没反应过来；</span><br><span class="line">    pthread_exit(NULL);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>使用-lpthread库编译下面的程序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ g++ test.cpp -lpthread -o test.o</span><br></pre></td></tr></table></figure>
+
+<h1 id="向线程传递参数"><a href="#向线程传递参数" class="headerlink" title="向线程传递参数"></a>向线程传递参数</h1>
       
     </div>
     <footer class="article-footer">
@@ -113,7 +122,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ISP-Methods-Page-Test/" rel="tag">ISP Methods, Page Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Page-Test/" rel="tag">Page Test</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ISP-Methods-Page-Test/" rel="tag">ISP Methods, Page Test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Page-Test/" rel="tag">Page Test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
     </div>
   </div>
 
@@ -150,7 +159,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ISP/">ISP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo%E5%AD%A6%E4%B9%A0/">hexo学习</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ISP/">ISP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo%E5%AD%A6%E4%B9%A0/">hexo学习</a></li></ul>
     </div>
   </div>
 
@@ -160,7 +169,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li></ul>
     </div>
   </div>
 
