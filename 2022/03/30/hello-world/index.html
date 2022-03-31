@@ -110,7 +110,25 @@
 <h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>链接文本放在中括号内，链接地址放在后面的括号中，链接title可选。<br><a target="_blank" rel="noopener" href="https://markdown.com.cn/" title="引号显示出现的文字">Markdown语法</a></p>
 <p>使用尖括号可以很方便地把URL或者email地址变成可点击的链接<br><a target="_blank" rel="noopener" href="https://markdown.com.cn/">https://markdown.com.cn</a></p>
 <h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>要添加图像，请使用感叹号 (!), 然后在方括号增加替代文本，图片链接放在圆括号里，括号里的链接后可以增加一个可选的图片标题文本。<br>要显示原本用于格式化 Markdown 文档的字符，请在字符前面添加反斜杠字符 \ 。</p>
+<h1 id="优化hexo使用"><a href="#优化hexo使用" class="headerlink" title="优化hexo使用"></a>优化hexo使用</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Olivia_Vang/article/details/92980237">简单的流程图</a></p>
+<p>实例</p>
+<div id="flowchart-0" class="flow-chart"></div>
 
+<p><a target="_blank" rel="noopener" href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams">添加更美观的流程图</a></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start|past:>http://www.google.com[blank]
+e=>end: End:>http://www.google.com
+op1=>operation: My Operation|past
+op2=>operation: Stuff|current
+sub1=>subroutine: My Subroutine|invalid
+cond=>condition: Yes
+or No?|approved:>http://www.google.com
+c2=>condition: Good idea|rejected
+io=>inputoutput: catch something…|request
+st->op1(right)->cond
+cond(yes, right)->c2
+cond(no)->sub1(left)->op1
+c2(yes)->io->e
+c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script>
       
     </div>
     <footer class="article-footer">
