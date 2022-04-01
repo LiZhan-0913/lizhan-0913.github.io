@@ -91,6 +91,14 @@
 <p>if (t / tn &gt; 0.008856)<br>    f(t / tn) = pow(t / tn, 1.0 / 3.0)<br>else<br>    f(t / tn) = 7.787 * (t / tn) + 16.0 / 116.0</p>
 </blockquote>
 <p><strong>以下内容来源于<a target="_blank" rel="noopener" href="https://blog.csdn.net/bby1987/article/details/109522126">链接</a></strong></p>
+<h2 id="a-Convert-Lab-to-XYZ"><a href="#a-Convert-Lab-to-XYZ" class="headerlink" title="(a) Convert Lab to XYZ"></a>(a) Convert Lab to XYZ</h2><blockquote>
+<p>Y’ = (L + 16) / 116<br>X’ = a / 500 + Y’<br>Z’ = Y’ - b / 200</p>
+</blockquote>
+<p>非线性变换（将X’, Y’, Z’变换为X’’, Y’’, Z’’）</p>
+<blockquote>
+<p>if (t’ &gt; 6 / 29)<br>    t’’ = pow(t’, 3)<br>else<br>    t’’ = (t - 16.0 / 116.0) / 7.787</p>
+</blockquote>
+<p>X = X’’ * Xn<br>Y = Y’’ * Yn<br>Z = Z’’ * Zn</p>
 
       
     </div>
