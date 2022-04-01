@@ -92,7 +92,8 @@
 <blockquote>
 <p>M = S’ · St · (S · St)^(-1)</p>
 </blockquote>
-<h2 id="1-最小二乘拟合"><a href="#1-最小二乘拟合" class="headerlink" title="1. 最小二乘拟合"></a>1. 最小二乘拟合</h2><h2 id="2-（传统方法）3D-LUT"><a href="#2-（传统方法）3D-LUT" class="headerlink" title="2. （传统方法）3D_LUT"></a>2. （传统方法）3D_LUT</h2><h2 id="3-（AI）3D-LUT"><a href="#3-（AI）3D-LUT" class="headerlink" title="3. （AI）3D_LUT"></a>3. （AI）3D_LUT</h2><h3 id="3-1-各类专利论文简述"><a href="#3-1-各类专利论文简述" class="headerlink" title="3.1 各类专利论文简述"></a>3.1 各类专利论文简述</h3><h4 id="1-3D-lut-techniques-for-color-correcting-images"><a href="#1-3D-lut-techniques-for-color-correcting-images" class="headerlink" title="(1) 3D lut techniques for color correcting images"></a>(1) 3D lut techniques for color correcting images</h4><p>专利来源于Apple Inc，原文地址：<a target="_blank" rel="noopener" href="https://patents.google.com/patent/US20070247647">https://patents.google.com/patent/US20070247647</a></p>
+<h2 id="1-最小二乘拟合"><a href="#1-最小二乘拟合" class="headerlink" title="1. 最小二乘拟合"></a>1. 最小二乘拟合</h2><p><a target="_blank" rel="noopener" href="https://www.imatest.com/docs/colormatrix/">Imatest</a></p>
+<h2 id="2-（传统方法）3D-LUT"><a href="#2-（传统方法）3D-LUT" class="headerlink" title="2. （传统方法）3D_LUT"></a>2. （传统方法）3D_LUT</h2><h2 id="3-（AI）3D-LUT"><a href="#3-（AI）3D-LUT" class="headerlink" title="3. （AI）3D_LUT"></a>3. （AI）3D_LUT</h2><h3 id="3-1-各类专利论文简述"><a href="#3-1-各类专利论文简述" class="headerlink" title="3.1 各类专利论文简述"></a>3.1 各类专利论文简述</h3><h4 id="1-3D-lut-techniques-for-color-correcting-images"><a href="#1-3D-lut-techniques-for-color-correcting-images" class="headerlink" title="(1) 3D lut techniques for color correcting images"></a>(1) 3D lut techniques for color correcting images</h4><p>专利来源于Apple Inc，原文地址：<a target="_blank" rel="noopener" href="https://patents.google.com/patent/US20070247647">https://patents.google.com/patent/US20070247647</a></p>
 <p>Abstract：<br>The disclosed implementations relate generally to three-dimensional look-up table (3D LUT) techniques for color correcting digital images. In some implementations, a method of correcting images includes: receiving a request to correct a digital image; and in response to the request, correcting at least a portion of the digital image using a 3D LUT.</p>
 <p><strong>3D LUT</strong></p>
 <p>0007: The disclosed implementations relate generally to three-dimensional (3D) look-up table (LUT) techniques for color correcting digital images.</p>
@@ -108,8 +109,8 @@
 <p>3.1 3D LUT和三线性插值</p>
 <p>3.2 Learning image-adaptive 3D LUTs</p>
 <p>模型应具有内容感知能力并适应输入，我们建议学习图像自适应 3D LUT 来实现这一目标。一个直观的想法是学习一个分类器来进行场景分类，然后使用不同的 3D LUT 来增强不同的图像。</p>
-<p><strong>断点创建：下一日计划</strong><br>A. 检查色彩空间转换（linearRGB 转 Lab）     –&gt; Done. 需要cpp实现<br>B. 上述论文继续阅读并尝试测试训练<br>C. 概述CCM并总结至Confluence</p>
-
+<p><strong>断点创建：下一日计划</strong><br>A. 检查色彩空间转换（linearRGB 转 Lab）     –&gt; Done. 需要cpp实现<br>B. 上述论文继续阅读并尝试测试训练            –&gt; Canceled. “cuda.h”环境配置问题过于复杂<br>B-1. 调研其他论文<br>C. 概述CCM并总结至Confluence</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4>
       
     </div>
     <footer class="article-footer">
