@@ -81,8 +81,9 @@
 <h1 id="一些问题记录"><a href="#一些问题记录" class="headerlink" title="一些问题记录"></a>一些问题记录</h1><h2 id="0-输出结果图像偏红"><a href="#0-输出结果图像偏红" class="headerlink" title="0. 输出结果图像偏红"></a>0. 输出结果图像偏红</h2><p>3*3矩阵的约束条件是每行的系数之和为1。此条件意味着输入为R=G=B时，输出也保持R=G=B。但是对于RGB值不相等的颜色，会进行校正。输入的色块若是不为白，则输出的色块就会发生变化。故猜测</p>
 <h1 id="相关算法简述"><a href="#相关算法简述" class="headerlink" title="相关算法简述"></a>相关算法简述</h1><h2 id="0-矩阵运算法则-算法"><a href="#0-矩阵运算法则-算法" class="headerlink" title="0. 矩阵运算法则 算法"></a>0. 矩阵运算法则 算法</h2><p>设CCM矩阵方程为</p>
 <blockquote>
-<p>S’ = M · S<br>其中，M为3*3矩阵，S为输入矩阵，S’为校正后输出</p>
+<p>S’ = M · S  </p>
 </blockquote>
+<p>其中，M为3*3矩阵，S为输入矩阵，S’为校正后输出</p>
 <p>等号两端右侧同乘以S的转置，St</p>
 <blockquote>
 <p>S’ · St = M · S · St</p>

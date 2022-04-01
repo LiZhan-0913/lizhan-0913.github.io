@@ -74,7 +74,12 @@
         <p>本文记录ISP里的色彩空间转换相关的内容。<br>目前包含各类的</p>
 <span id="more"></span>
 
-
+<h1 id="0-sRGB-and-Lab-Including-XYZ"><a href="#0-sRGB-and-Lab-Including-XYZ" class="headerlink" title="0. sRGB and Lab (Including XYZ)"></a>0. sRGB and Lab (Including XYZ)</h1><p><strong>本部分内容来源于ISO-17957-2015，该标准原用于评价LSC模块的校正效果。</strong></p>
+<h2 id="a-Convert-sRGB-values-to-linear-RGB-values-in-the-range-of-0-to-1"><a href="#a-Convert-sRGB-values-to-linear-RGB-values-in-the-range-of-0-to-1" class="headerlink" title="(a) Convert sRGB values to linear RGB values in the range of 0 to 1"></a>(a) Convert sRGB values to linear RGB values in the range of 0 to 1</h2><p>以R通道为例：</p>
+<blockquote>
+<p>R’ = R_s / 255<br>if (R’ &lt;= 0.04045)<br>    R_lin = R’ / 12.92<br>else<br>    R_lin = pow((R’ + 0.055) / 1.055, 2.4)</p>
+</blockquote>
+<h2 id="b-Convert-linear-RGB-values-to-XYZ"><a href="#b-Convert-linear-RGB-values-to-XYZ" class="headerlink" title="(b) Convert linear RGB values to XYZ"></a>(b) Convert linear RGB values to XYZ</h2><p>X    0.4124 0.3576 0.1805    R_Lin<br>Y = [0.2126 0.7152 0.0722] [ G_Lin ]<br>Z    0.0193 0.1192 0.9505    B_Lin</p>
 
       
     </div>
