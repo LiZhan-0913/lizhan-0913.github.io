@@ -99,6 +99,15 @@
 <p>if (t’ &gt; 6 / 29)<br>    t’’ = pow(t’, 3)<br>else<br>    t’’ = (t - 16.0 / 116.0) / 7.787</p>
 </blockquote>
 <p>X = X’’ * Xn<br>Y = Y’’ * Yn<br>Z = Z’’ * Zn</p>
+<h2 id="b-Convert-XYZ-to-linear-RGB"><a href="#b-Convert-XYZ-to-linear-RGB" class="headerlink" title="(b) Convert XYZ to linear RGB"></a>(b) Convert XYZ to linear RGB</h2><blockquote>
+<p>[ R_lin G_lin B_lin ].T = Matrix_XYZ_to_linearRGB * [ X Y Z ].T</p>
+</blockquote>
+<p>XYZ to RGB in D50<br>Matrix_XYZ_to_linearRGB = [ [ 3.1369, -1.6181, -0.49 ], [ -0.9818, 1.9174, 0.0328], [ 0.07187, -0.2288, 1.4057] ]<br>XYZ to RGB in D65<br>Matrix_XYZ_to_linearRGB = [ [ 3.2401, -1.537, -0.4983 ], [ -0.9692, 1.8759, 0.0415 ], [ 0.0558, -0.2041, 1.0572 ] ]</p>
+<h2 id="c-linear-RGB-to-sRGB"><a href="#c-linear-RGB-to-sRGB" class="headerlink" title="(c) linear RGB to sRGB"></a>(c) linear RGB to sRGB</h2><p>t 代表 RGB</p>
+<blockquote>
+<p>if(t &gt; 0.0031308)<br>    t_s = 1.055 * pow(t, 1.0/2.4) - 0.055<br>else<br>    t_s = 12.92 * t</p>
+</blockquote>
+<p>裁剪0~1<br>反归一化至像素值域</p>
 
       
     </div>
