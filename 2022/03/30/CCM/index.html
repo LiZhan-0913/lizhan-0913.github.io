@@ -109,8 +109,8 @@
 <p>3.1 3D LUT和三线性插值</p>
 <p>3.2 Learning image-adaptive 3D LUTs</p>
 <p>模型应具有内容感知能力并适应输入，我们建议学习图像自适应 3D LUT 来实现这一目标。一个直观的想法是学习一个分类器来进行场景分类，然后使用不同的 3D LUT 来增强不同的图像。</p>
-<p><strong>断点创建：下一日计划</strong><br>A. 检查色彩空间转换（linearRGB 转 Lab）     –&gt; Done. 需要cpp实现<br>B. 上述论文继续阅读并尝试测试训练            –&gt; Canceled. “cuda.h”环境配置问题过于复杂<br>B-1. 调研其他论文<br>C. 概述CCM并总结至Confluence</p>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4>
+<p><strong>断点创建：下一日计划</strong><br>A. 检查色彩空间转换（linearRGB 转 Lab）     –&gt; Done. 需要cpp实现<br>B. 上述论文继续阅读并尝试测试训练            –&gt; Canceled. “cuda.h”环境配置问题过于复杂<br>B-1. 调研其他论文。警告，相关论文数量较少。调研相关专利看是否有解决方案。<br>B-2. CCM3*3方案的参数测试，数学方法计算 / 最小二乘法计算？<br>B-3. 等待测试SD卡进行测试。<br>B-4. 探索CCM与AWB的关系以及前后顺序。<br>B-5. 分光计的使用验证Lab转RGB的正确性<br>C. 完成对CSC模块的测试验证，等待硬件数据测试。</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h1 id="Imatest-docs-颜色校正矩阵"><a href="#Imatest-docs-颜色校正矩阵" class="headerlink" title="Imatest docs: 颜色校正矩阵"></a>Imatest docs: 颜色校正矩阵</h1>
       
     </div>
     <footer class="article-footer">
